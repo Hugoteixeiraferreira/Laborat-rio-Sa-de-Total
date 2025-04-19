@@ -1,2 +1,2 @@
-# Laborat-rio-Sa-de-Total
+# Laboratório-saúde-Total
 Clinica de exames laboratoriais 
