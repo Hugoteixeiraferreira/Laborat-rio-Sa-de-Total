@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Saúde Total</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+        }
+        section {
+            padding: 20px;
+        }
+        .servico, .membro {
+            display: inline-block;
+            margin: 15px;
+            text-align: center;
+        }
+        .servico img, .membro img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #2c3e50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #34495e;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Clínica Saúde Total</h1>
+        <p>Cuidando de você e da sua família</p>
+    </header>
+    
+    <section id="servicos">
+        <h2>Nossos Serviços</h2>
+        <div id="servicos-container"></div>
+    </section>
+    
+    <section id="equipe">
+        <h2>Nossa Equipe</h2>
+        <div id="equipe-container"></div>
+    </section>
+    
+    <section id="contato">
+        <h2>Fale Conosco</h2>
+        <form id="contato-form">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+            
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="cidade">Cidade:</label>
+            <input type="text" id="cidade" name="cidade" required>
+            
+            <label for="estado">Estado:</label>
+            <input type="text" id="estado" name="estado" required>
+            
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const servicos = [
+                { img: "exame-laboratorial.jpg", descricao: "Exames laboratoriais completos com rapidez e precisão." },
+                { img: "atendimento-medico.jpg", descricao: "Consultas médicas com especialistas de diversas áreas." }
+            ];
+
+            const equipe = [
+                { img: "medico1.jpg", nome: "Dr. João Silva - Clínico Geral" },
+                { img: "medica2.jpg", nome: "Dra. Maria Souza - Cardiologista" },
+                { img: "nutricionista.jpg", nome: "Carla Mendes - Nutricionista" }
+            ];
+
+            const servicosContainer = document.getElementById("servicos-container");
+            servicos.forEach(servico => {
+                const div = document.createElement("div");
+                div.classList.add("servico");
+                div.innerHTML = `<img src="${servico.img}" alt="Serviço"><p>${servico.descricao}</p>`;
+                servicosContainer.appendChild(div);
+            });
+
+            const equipeContainer = document.getElementById("equipe-container");
+            equipe.forEach(membro => {
+                const div = document.createElement("div");
+                div.classList.add("membro");
+                div.innerHTML = `<img src="${membro.img}" alt="Membro da equipe"><p>${membro.nome}</p>`;
+                equipeContainer.appendChild(div);
+            });
+
+            document.getElementById("contato-form").addEventListener("submit", (event) => {
+                event.preventDefault();
+                alert("Obrigado pelo seu contato! Entraremos em breve em contato com você.");
+            });
+        });
+    </script>
+</body>
+</html>
+
